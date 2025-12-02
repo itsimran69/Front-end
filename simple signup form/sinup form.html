@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>
+           Signup form
+        </title>
+        <style>
+            form{
+                background-color: palegoldenrod;
+                width: 50%;
+               border-bottom: dotted;
+               border-color: brown;
+               border-style: dotted;
+               font-size: medium;
+               font-weight: bold;
+               font-style: italic;
+               
+            }
+           input{
+            background-color:lavenderblush;
+           }
+      
+        </style>
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>fill this first</legend>
+            <label>Name
+            </label>
+            <input type="text" name=""/><br/><br/>
+            <label>Password
+            </label>
+            <input type="password" name=""/><br/><br/>
+            <label>Gender
+            </label>
+            <input type="radio" id="Male" name="Gender"/> <label for="Male">Male
+            </label> <input type="radio" id="Female" name="Gender"/> <label for="Female">Female
+            </label><br/><br/>
+            <label>Date of Birth
+            </label>
+            <input type="date" name=""/><br/><br/>
+            <label>Hobbies
+            </label><br/>
+            <input type="checkbox" name="hobby" for="music"/>
+            <label>music
+            </label>  <input type="checkbox" name="hobby" for="veloging"/>
+            <label>veloging
+            </label>  <input type="checkbox" name="hobby" for="gardining"/>
+            <label>gardining
+            </label>   <input type="checkbox" name="hobby" for="study"/>
+            <label>study
+            </label><br/><br/>
+            <label>Country
+            </label>
+            <select>
+                <option selected>Pakistan</option>
+                <option>India</option>
+                <option>China</option>
+                <option>UAE</option>
+                <option>Iran</option>
+            </select><br/><br/>
+            <label>URL
+            </label>
+            <input type="url" name=""/><br/><br/>
+            <label>Email
+            </label>
+            <input type="email" name=""/><br/><br/>
+            <label>Upload file
+            </label>
+            <input type="file" name=""/><br/><br/>
+            <input type="submit"  style="background-color: brown;" />
+            <input type="reset" name="" style="background-color: brown;"/>
+        </fieldset>
+
+        </form>
+
+    </body>
+    </html>
