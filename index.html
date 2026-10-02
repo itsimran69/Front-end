@@ -1,0 +1,98 @@
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IMRAN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;border-radius:0}
+html,body{margin:0;background:#2b3342}
+body{font-family:'Archivo','Helvetica Neue',Arial,sans-serif;color:#f0f0ee}
+a{color:#f3f2f2;text-underline-offset:3px}
+a:hover{color:#fff}
+.hero{position:relative;height:100vh;height:100svh;overflow:hidden;background:#2b3342}
+.layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:translateZ(0);user-select:none;-webkit-user-drag:none}
+.gold10{opacity:.1;pointer-events:none}
+.reveal{opacity:0;transition:opacity .4s ease-out;will-change:opacity;pointer-events:none;
+  -webkit-mask-image:radial-gradient(closest-side,#000 62%,transparent 100%);
+  mask-image:radial-gradient(closest-side,#000 62%,transparent 100%);
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-size:110px 140px;mask-size:110px 140px;
+  -webkit-mask-position:-300px -300px;mask-position:-300px -300px}
+.scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(20,24,32,.55) 0%,rgba(20,24,32,.12) 45%,rgba(20,24,32,.6) 100%)}
+.content{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;padding:44px 64px 40px;pointer-events:none}
+.content a{pointer-events:auto}
+.top{display:flex;justify-content:space-between;align-items:baseline;font-size:16px;font-weight:500;letter-spacing:.02em}
+.grp{display:flex;gap:28px}
+.grp.r{gap:14px}
+.pill{border:1.5px solid #f0f0ee;border-radius:999px;padding:4px 20px;font-size:15px}
+h1{margin:40px 0 0;font-size:clamp(52px,7.4vw,104px);font-weight:500;letter-spacing:-.02em;line-height:.98}
+h1 .row{display:inline-flex;align-items:center;gap:24px}
+.plus{width:.8em;height:.8em;border:1.5px solid #f0f0ee;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.45em;font-weight:400;line-height:1}
+.plus span{font-size:1em}
+.bottom{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:48px}
+.night{font-size:18px;font-weight:500;line-height:1.45;margin:0}
+.blk{max-width:560px}
+.blk p{margin:0;font-size:15.5px;line-height:1.6;text-align:justify;word-spacing:.15em}
+.meta{margin-top:20px;display:flex;justify-content:space-between;font-size:14px;letter-spacing:.02em}
+@media(max-width:720px){
+ .content{padding:28px 22px 28px}
+ .top{flex-wrap:wrap;gap:10px 0;font-size:14px}
+ .grp{gap:14px}
+ .top .grp.r{display:none}
+ .bottom{flex-direction:column;align-items:flex-start;gap:20px}
+ .blk p{font-size:14px}
+}
+</style>
+</head>
+<body>
+<section class="hero" id="hero">
+  <img class="layer" src="https://cdn.sceneai.art/Bg%20images/ddfc017a-6d87-42c8-b9d6-c068c2854910.png" alt="" draggable="false">
+  <img class="layer gold10" src="https://cdn.sceneai.art/Bg%20images/27a6b99b-8093-439e-be9c-1c96311e8fb8.png" alt="" draggable="false">
+  <img class="layer reveal" id="reveal" src="https://cdn.sceneai.art/Bg%20images/27a6b99b-8093-439e-be9c-1c96311e8fb8.png" alt="" draggable="false" style="mask-position: 835px 184px; opacity: 0;">
+  <div class="scrim"></div>
+  <div class="content">
+    <div class="top">
+      <div class="grp"><span>IMRAN</span><span>UI/UX &amp; AI Product Designer</span></div>
+      <span class="pill">©2026</span>
+      <div class="grp r"><span>(</span><span>Building better digital experiences</span><span>)</span></div>
+    </div>
+    <h1>If You Need<br><span class="row"><span class="plus"><span>+</span></span><span>Iam Here</span></span></h1>
+    <div class="bottom">
+      <p class="night">ideas → interfaces</p>
+      <div class="blk">
+        <p>I design thoughtful interfaces and AI-powered products — turning complex ideas into simple, useful experiences.</p>
+        <div class="meta"><span>Designing interfaces.</span><span>( scroll ↓ )</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  if(!window.matchMedia('(hover: hover) and (pointer: fine)').matches)return;
+  var hero=document.getElementById('hero'),el=document.getElementById('reveal');
+  var tx=0,ty=0,cx=0,cy=0,started=false,raf=null;
+  function place(){
+    var v=(cx-55)+'px '+(cy-70)+'px';
+    el.style.maskPosition=v;el.style.webkitMaskPosition=v;
+  }
+  function tick(){
+    var dx=tx-cx,dy=ty-cy;
+    cx+=dx*.22;cy+=dy*.22;place();
+    if(Math.abs(dx)<.3&&Math.abs(dy)<.3){cx=tx;cy=ty;place();raf=null;return}
+    raf=requestAnimationFrame(tick);
+  }
+  hero.addEventListener('mousemove',function(e){
+    var r=hero.getBoundingClientRect();
+    tx=e.clientX-r.left;ty=e.clientY-r.top;
+    if(!started){started=true;cx=tx;cy=ty;place();el.style.opacity=1}
+    else el.style.opacity=1;
+    if(!raf)raf=requestAnimationFrame(tick);
+  });
+  hero.addEventListener('mouseleave',function(){el.style.opacity=0;started=false});
+})();
+</script>
+
+
+</body></html>
